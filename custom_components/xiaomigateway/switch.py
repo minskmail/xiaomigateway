@@ -10,7 +10,7 @@ import asyncio
 import datetime
 
 from homeassistant.const import (STATE_OFF, STATE_ON, POWER_WATT)
-from homeassistant.components.switch import SwitchDevice
+from homeassistant.components.switch import SwitchEntity
 from homeassistant.helpers.entity import Entity
 from functools import partial
 from math import ceil
@@ -64,7 +64,7 @@ def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
         async_add_devices(devices, update_before_add=True)
     return True
 
-class XiaomiGatewaySwitch(SwitchDevice):
+class XiaomiGatewaySwitch(SwitchEntity):
     """Representation of a XiaomiPlug."""
 
     def __init__(self, data, device, name, sid, channel, w_sensor):

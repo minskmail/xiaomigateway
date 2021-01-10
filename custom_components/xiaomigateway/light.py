@@ -13,7 +13,7 @@ from homeassistant.components.light import (
     ATTR_ENTITY_ID,
     SUPPORT_BRIGHTNESS,
     SUPPORT_COLOR_TEMP,
-    Light,
+    LightEntity,
 )
 from homeassistant.const import (CONF_HOST, CONF_NAME, CONF_TOKEN, STATE_OFF, STATE_ON)
 from homeassistant.helpers.entity import Entity
@@ -53,7 +53,7 @@ def async_setup_platform(hass, config, async_add_devices, discovery_info=None):
         async_add_devices(devices, update_before_add=True)
     return True
 
-class XiaomiGatewayLight(Light):
+class XiaomiGatewayLight(LightEntity):
     """Representation of Xiaomi Gateway Light."""
 
     def __init__(self, device, name, sid):

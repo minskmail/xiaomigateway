@@ -178,9 +178,9 @@ class XiaomiGatewayLight(LightEntity):
             else:
                 self._brightness = 0
                 self._state = False
-        else:
-            self._brightness = 0
-            self._state = False
+#        else:
+#            self._brightness = 0
+#            self._state = False
 
     @staticmethod
     def convert(value):

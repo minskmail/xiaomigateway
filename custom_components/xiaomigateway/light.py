@@ -161,23 +161,23 @@ class XiaomiGatewayLight(LightEntity):
         """Set color temp in kelvin."""
         return self._color_temp
 
-    async def async_update(self):
-        """
-        Fetch new state data for this light.
-        This is the only method that should fetch new data for Home Assistant.
-        """
-        brightness = 0
-        result = await self._try_command(
-            self._device.send,
-            'get_bright', None, extra_parameters={'sid':self._sid})
-        if result[0] is not None:
-            brightness = result[0]
-            if brightness > 0 and brightness <= 100:
-                self._brightness = ceil((brightness * 255) / 100)
-                self._state = True
-            else:
-                self._brightness = 0
-                self._state = False
+#    async def async_update(self):
+#        """
+#        Fetch new state data for this light.
+#        This is the only method that should fetch new data for Home Assistant.
+#        """
+#        brightness = 0
+#        result = await self._try_command(
+#            self._device.send,
+#            'get_bright', None, extra_parameters={'sid':self._sid})
+#        if result[0] is not None:
+#            brightness = result[0]
+#            if brightness > 0 and brightness <= 100:
+#                self._brightness = ceil((brightness * 255) / 100)
+#                self._state = True
+#            else:
+#                self._brightness = 0
+#                self._state = False
 #        else:
 #            self._brightness = 0
 #            self._state = False
